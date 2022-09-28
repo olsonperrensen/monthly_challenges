@@ -1,6 +1,8 @@
+from ast import arg
 from calendar import month
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 monthly_challenges = {
     "jan": "Eat no meat for an entire month!",
@@ -26,7 +28,8 @@ def monthly_challenge_num(req, nr):
     m = list(monthly_challenges.keys())
     if nr < len(m) and nr != 0:
         redirect_month = m[nr-1]
-        return HttpResponseRedirect(f"/challenges/{redirect_month}")
+        redi = reverse("month-challenge", args=[redirect_month])
+        return HttpResponseRedirect(redi)
     else:
         return HttpResponseNotFound("Invalid month man.")
 
