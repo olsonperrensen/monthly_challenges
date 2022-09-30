@@ -17,7 +17,7 @@ monthly_challenges = {
     "sep": "Improve your poetry skills 1 hour a month",
     "oct": "Learn Chinese 5 minutes a day",
     "nov": "Do yoga at a gym for 45 minutes",
-    "dec": "Write a journal before going to sleep every day in between",
+    "dec": None,
 }
 
 
