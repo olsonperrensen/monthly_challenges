@@ -22,31 +22,10 @@ monthly_challenges = {
 
 
 def index(req):
-    html_res = '''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-        a
-        {
-            color: orange;
-            font-size: 26px;
-            margin: 50%;
-        }
-        ul
-        {
-                        padding: 6px;
-        }
-    </style>
-'''
-    for k in monthly_challenges.keys():
-        html_res += f"<ul><a href='{reverse('month-challenge', args=[k])}'>{k}</a></ul>"
-    return HttpResponse(html_res)
+    months = list(monthly_challenges.keys())
+    return render(req, "challenges/index.html", {
+        "mMonths": months
+    })
 
 
 def monthly_challenge_num(req, nr):
@@ -65,6 +44,6 @@ def monthly_challenge(request, maand):
         return render(request, "challenges/challenge.html", {
             "mText": challenge_text,
             "mMonth": maand
-            })
+        })
     except:
         return HttpResponseNotFound('This month is not supported yet!')
