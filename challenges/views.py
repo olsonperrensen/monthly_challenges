@@ -1,7 +1,7 @@
 from ast import arg
 from calendar import month
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
 
 # Create your views here.
@@ -39,11 +39,11 @@ def monthly_challenge_num(req, nr):
 
 
 def monthly_challenge(request, maand):
-    challenge_text = monthly_challenges[maand]
     try:
+        challenge_text = monthly_challenges[maand]
         return render(request, "challenges/challenge.html", {
             "mText": challenge_text,
             "mMonth": maand
         })
     except:
-        return HttpResponseNotFound('This month is not supported yet!')
+        raise Http404()
