@@ -1,9 +1,16 @@
 {% extends 'base.html' %} {% block mTitle%} {{mMonth|title}}'s Challenge 
+{% load static %}
+{% block mCss%} 
+<link rel="stylesheet" 
+href="{% static "challenges/challenge.css"%}"> 
+<link rel="stylesheet" 
+href="{% static "challenges/includes/header.css"%}"> 
+{% endblock %}
 {%endblock %} {% block mContent %} 
 {% include "challenges/includes/header.html" %}
 <h1>This {{mMonth|title}}'s Challenge</h1>
 {% if mText is not None %}
 <h2>{{mText}}</h2>
 {%else %}
-<h2>There is no challenge set yet. Come back later.</h2>
+<p class='fallback'>There is no challenge set yet. Come back later.</p>
 {% endif %} {% endblock %}
