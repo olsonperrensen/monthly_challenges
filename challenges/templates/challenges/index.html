@@ -1,4 +1,12 @@
-{% extends 'base.html' %} {% block mTitle %} All challenges {% endblock %} 
+{% extends 'base.html' %} 
+{% load static %} 
+{% block mCss%} 
+<link rel="stylesheet" 
+href="{% static "challenges/challenges.css"%}"> 
+{% endblock %}
+{% block mTitle %} 
+All challenges 
+{% endblock %} 
 {% block mContent%} 
 {% include "challenges/includes/header.html" %}
 <ul {% for m in mMonths%}>
