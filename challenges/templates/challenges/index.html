@@ -1,5 +1,6 @@
-{% extends 'base.html' %} {% block mTitle %} All challenges {% endblock %} {%
-block mContent%} {% include "challenges/includes/header.html" %}
+{% extends 'base.html' %} {% block mTitle %} All challenges {% endblock %} 
+{% block mContent%} 
+{% include "challenges/includes/header.html" %}
 <ul {% for m in mMonths%}>
   <li><a href="{% url 'month-challenge' m %}"> {{m|title}} </a></li>
   {% endfor %}

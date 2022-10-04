@@ -1,5 +1,6 @@
-{% extends 'base.html' %} {% block mTitle%} {{mMonth|title}}'s Challenge {%
-endblock %} {% block mContent %} {% include "challenges/includes/header.html" %}
+{% extends 'base.html' %} {% block mTitle%} {{mMonth|title}}'s Challenge 
+{%endblock %} {% block mContent %} 
+{% include "challenges/includes/header.html" %}
 <h1>This {{mMonth|title}}'s Challenge</h1>
 {% if mText is not None %}
 <h2>{{mText}}</h2>
